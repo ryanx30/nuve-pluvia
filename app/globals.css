@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #e6e6e6;
   --foreground: #171717;
+
+  --font-sans: "MADE Tommy Soft";
+  --font-outline: "MADE Tommy Soft Outline";
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===== MADE Tommy Soft (Normal) ===== */
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Thin%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Light%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Regular%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Medium%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Bold%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20ExtraBold%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Black%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== MADE Tommy Soft (Outline) ===== */
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Thin%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Light%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Regular%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Medium%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Bold%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20ExtraBold%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MADE Tommy Soft Outline";
+  src: url("/fonts/MADE%20Tommy%20Soft%20Black%20Outline%20PERSONAL%20USE.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
+html,
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }

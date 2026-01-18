@@ -19,27 +19,21 @@ export const metadata: Metadata = {
   description: "Company Profile Website",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#e6e6e6]`}
       >
-        {/* Navbar */}
         <Navbar />
 
-        {/* Page Content */}
-        <main className="flex-1">
+        <main className="flex-1 pt-28 md:pt-32 bg-[#e6e6e6]">
           {children}
         </main>
 
-        {/* Footer dari components */}
         <Footer />
       </body>
     </html>
   );
 }
+
