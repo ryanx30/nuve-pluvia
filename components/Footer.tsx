@@ -16,7 +16,7 @@ export default function Footer() {
         "
       >
         {/* Left Content */}
-        <div className="text-[11px] leading-relaxed text-white/85 max-w-xl">
+        <div className="text-[17px] leading-[1.1] text-white/85 max-w-xl">
           <p>
             Ruko The Springs SPRU No.32, Jl. Gading Golf Boulevard, Cihuni,
             Pagedangan, Tangerang Regency, Banten 15332
@@ -27,7 +27,7 @@ export default function Footer() {
 
         {/* Right Logo */}
         <div className="flex items-center">
-          <Image src="/logo.png" alt="Nuve Pluvia" width={90} height={90} />
+          <Image src="/logo.png" alt="Nuve Pluvia" width={100} height={100} />
         </div>
       </div>
     </footer>

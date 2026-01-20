@@ -61,13 +61,13 @@ export default function Navbar() {
       // biar tidak nahan klik area kosong di atas
       style={{ pointerEvents: "none" }}
     >
-      <div className="w-[92%] max-w-6xl relative" style={{ pointerEvents: "auto" }}>
+      <div className="w-[92%] max-w-7xl relative" style={{ pointerEvents: "auto" }}>
         <nav
           className="
             rounded-full
             bg-gradient-to-r from-[#0B0F1A] to-[#14192D]
             px-6 md:px-10
-            py-3
+            py-0
             flex items-center justify-between
             text-white
             shadow-[0_10px_30px_rgba(0,0,0,0.18)]
@@ -79,13 +79,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center gap-10 text-[12px] font-semibold tracking-wider">
-            {navItems.map((item) => (
-              <li key={item.href} className="hover:opacity-75 transition-opacity">
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
+<ul className="hidden md:flex items-center gap-14 text-[14px] md:text-[19px] font-black tracking-wider font-[Avenir]">
+  {navItems.map((item) => (
+    <li key={item.href} className="hover:opacity-75 transition-opacity">
+      <Link href={item.href}>{item.label}</Link>
+    </li>
+  ))}
+</ul>
+
 
           {/* Mobile Button */}
           <button
@@ -117,7 +118,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="tracking-wider"
+                className="tracking-wider font-black font-[Avenir]"
               >
                 {item.label}
               </Link>

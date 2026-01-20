@@ -6,9 +6,12 @@
 
   --font-sans: "MADE Tommy Soft";
   --font-outline: "MADE Tommy Soft Outline";
+  --font-avenir: "Avenir";
 }
 
-/* ===== MADE Tommy Soft (Normal) ===== */
+/* =========================
+   MADE Tommy Soft (Normal)
+   ========================= */
 @font-face {
   font-family: "MADE Tommy Soft";
   src: url("/fonts/MADE%20Tommy%20Soft%20Thin%20PERSONAL%20USE.otf") format("opentype");
@@ -59,7 +62,9 @@
   font-display: swap;
 }
 
-/* ===== MADE Tommy Soft (Outline) ===== */
+/* =========================
+   MADE Tommy Soft (Outline)
+   ========================= */
 @font-face {
   font-family: "MADE Tommy Soft Outline";
   src: url("/fonts/MADE%20Tommy%20Soft%20Thin%20Outline%20PERSONAL%20USE.otf") format("opentype");
@@ -110,6 +115,45 @@
   font-display: swap;
 }
 
+/* =========================
+   Avenir (TTF)
+   ========================= */
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir%20Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir%20Book.ttf") format("truetype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir%20Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir%20Heavy.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir%20Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   margin: 0;
@@ -118,5 +162,14 @@ body {
   min-height: 100%;
   background: var(--background);
   color: var(--foreground);
+
+  /* Default: Avenir untuk body text */
+  font-family: var(--font-avenir), Arial, Helvetica, sans-serif;
+}
+
+/* Optional: heading tetap pakai MADE */
+h1,
+h3,
+h4 {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
