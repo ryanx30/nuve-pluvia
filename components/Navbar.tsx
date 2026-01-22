@@ -65,7 +65,7 @@ export default function Navbar() {
         <nav
           className="
             rounded-full
-            bg-gradient-to-r from-[#0B0F1A] to-[#14192D]
+            bg-linear-to-r from-[#0B0F1A] to-[#14192D]
             px-6 md:px-10
             py-0
             flex items-center justify-between

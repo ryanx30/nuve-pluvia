@@ -2,21 +2,21 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-[#0B0F1A] to-[#14192D]">
+    <footer className="w-full bg-linear-to-r from-[#0B0F1A] to-[#14192D]">
       <div
         className="
-          max-w-6xl mx-auto
+          max-w-7xl mx-auto
           px-6
           py-7
           flex flex-col md:flex-row
           items-start md:items-center
           justify-between
-          gap-6
+          gap-7
           text-white
         "
       >
         {/* Left Content */}
-        <div className="text-[17px] leading-[1.1] text-white/85 max-w-xl">
+        <div className="text-[14px] lap:text-[17px] leading-[1.1] text-white/85 max-w-xl">
           <p>
             Ruko The Springs SPRU No.32, Jl. Gading Golf Boulevard, Cihuni,
             Pagedangan, Tangerang Regency, Banten 15332
