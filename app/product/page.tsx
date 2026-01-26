@@ -5,6 +5,9 @@ type HighlightItem = {
   sub?: string;
 };
 
+const HOVER_BRIGHT_GROUP =
+  "transition duration-300 ease-out group-hover:brightness-130";
+
 function SectionTitle({
   children,
   align = "left",
@@ -38,7 +41,7 @@ function HighlightBar({
         className={[
           "max-w-7xl mx-auto px-2",
           "py-9",
-          "grid gap-y-6 gap-x-10",
+          "grid gap-y-6 gap-x-9",
           "grid-cols-2", // mobile/tablet
           colsLap === 3 ? "lap:grid-cols-3" : "lap:grid-cols-5",
         ].join(" ")}
@@ -49,7 +52,7 @@ function HighlightBar({
               {it.head}
             </p>
             {it.sub ? (
-              <p className="mt-1 font-avenir font-medium text-[12px] lap:text-[14px] text-[#e6e6e6] leading-relaxed">
+              <p className="mt-1 font-avenir font-medium text-[14px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
                 {it.sub}
               </p>
             ) : null}
@@ -68,18 +71,18 @@ function SplitHighlightBoxes({
   right: HighlightItem[];
 }) {
   return (
-    <div className="mt-8 max-w-6xl mx-auto px-6">
+    <div className="mt-8 lap:mb-30 w-full">
       <div className="grid gap-6 lap:grid-cols-2">
         {/* Left box */}
-        <div className="bg-linear-to-r from-[#0B0F1A] to-[#14192D] px-8 py-8">
-          <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+        <div className="bg-linear-to-r from-[#0B0F1A] to-[#14192D] px-10 lap:px-16 py-16 min-h-44.5">
+          <div className="text-right grid grid-cols-2 gap-x-6 gap-y-6">
             {left.map((it, idx) => (
-              <div key={idx} className="text-white">
-                <p className="font-avenir font-black text-[11px] leading-snug">
+              <div key={idx} className="text-[#e6e6e6]">
+                <p className="font-avenir font-black text-[11px] lap:text-[16px] leading-snug">
                   {it.head}
                 </p>
                 {it.sub ? (
-                  <p className="mt-1 font-avenir font-regular text-[10px] text-white/80 leading-relaxed">
+                  <p className="mt-1 font-avenir font-regular text-[11px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
                     {it.sub}
                   </p>
                 ) : null}
@@ -89,15 +92,15 @@ function SplitHighlightBoxes({
         </div>
 
         {/* Right box */}
-        <div className="bg-linear-to-r from-[#0B0F1A] to-[#14192D] px-8 py-8">
-          <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+        <div className="bg-linear-to-r from-[#14192D] to-[#0B0F1A] px-10 lap:px-16 py-16 min-h-44.5">
+          <div className="text-left grid grid-cols-2 gap-x-6 gap-y-6">
             {right.map((it, idx) => (
-              <div key={idx} className="text-white">
-                <p className="font-avenir font-black text-[11px] leading-snug">
+              <div key={idx} className="text-[#e6e6e6]">
+                <p className="font-avenir font-black text-[11px] lap:text-[16px] leading-snug">
                   {it.head}
                 </p>
                 {it.sub ? (
-                  <p className="mt-1 font-avenir font-regular text-[10px] text-white/80 leading-relaxed">
+                  <p className="mt-1 font-avenir font-regular text-[11px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
                     {it.sub}
                   </p>
                 ) : null}
@@ -119,68 +122,96 @@ function OverlapProductRow({
 }: {
   imageSrc: string;
   title: string;
-  subtitle: string; // boleh pakai \n
+  subtitle: string;
   desc: string;
-  features: string[]; // boleh pakai \n
+  features: string[];
 }) {
   return (
-    <section className="w-full overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 py-16 lap:py-20">
+    <section className="relative w-full overflow-hidden">
+      {/* IMAGE FULL-BLEED kiri (LAP) */}
+      <div
+        className="
+          group
+          hidden lap:block
+          absolute left-0 top-0
+          h-182.5
+          overflow-hidden
+          right-[calc((100vw-1152px)/2+560px)]
+        "
+      >
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className={`object-cover ${HOVER_BRIGHT_GROUP}`}
+          priority
+        />
+      </div>
+
+      {/* CONTENT (tetap center) */}
+      <div className="max-w-6xl mx-auto px-6 py-16 lap:py-20 relative">
         <div className="flex flex-col gap-10 lap:flex-row lap:items-start">
-          {/* IMAGE */}
-          <div className="relative w-full lap:w-[520px]">
-            <div className="relative w-full aspect-[16/10] lap:aspect-auto lap:h-[340px] overflow-hidden">
+          {/* MOBILE IMAGE */}
+          <div className="group relative w-full lap:hidden">
+            <div className="relative w-full aspect-16/10 overflow-hidden">
               <Image
                 src={imageSrc}
                 alt={title}
                 fill
-                className="object-cover"
+                className={`object-cover ${HOVER_BRIGHT_GROUP}`}
                 priority
               />
             </div>
           </div>
 
-          {/* CARD (OVERLAP on lap) */}
-          <div className="relative w-full lap:w-[560px] lap:-ml-[110px]">
-            {/* shadow layer (depth) */}
+          {/* RIGHT SIDE CARD */}
+          <div className="relative w-full lap:ml-auto lap:w-175">
+            {/* shadow layer */}
             <div
               className="
                 hidden lap:block
                 absolute -z-10
-                left-[-28px] top-[18px]
-                w-full h-full
+                -left-8.5 top-5.5
+                w-180 h-full
                 bg-black/15
-                rounded-tr-[190px] rounded-bl-[190px]
+                rounded-tr-[160px] rounded-bl-[160px]
                 rounded-tl-none rounded-br-none
               "
             />
 
             <div
               className="
-                bg-[#3F3F3F] text-white
-                px-10 py-10
-                rounded-tr-[190px] rounded-bl-[190px]
+                bg-[#3F3F3F] text-[#e6e6e6]
+                w-full lap:w-180 lap:ml-21.25
+                px-12 lap:px-14
+                py-12 lap:py-14
+                rounded-tr-[150px] rounded-bl-[150px]
                 rounded-tl-none rounded-br-none
+                shadow-[0_30px_90px_rgba(0,0,0,0.18)]
               "
             >
-              <h2 className="font-avenir font-black text-[36px] lap:text-[40px] leading-[1]">
-                {title}
-              </h2>
+              {/* desc */}
+              <div className="pl-4 lap:pl-20">
+                <h2 className="font-avenir font-black text-[44px] lap:text-[56px] leading-none">
+                  {title}
+                </h2>
 
-              <p className="mt-3 font-avenir font-black text-[14px] lap:text-[15px] leading-snug whitespace-pre-line">
-                {subtitle}
-              </p>
+                <p className="mt-4 font-avenir font-black text-[18px] lap:text-[26px] leading-snug whitespace-pre-line">
+                  {subtitle}
+                </p>
 
-              <p className="mt-4 font-avenir font-regular text-[11px] lap:text-[12px] leading-relaxed text-white/75">
-                {desc}
-              </p>
+                <p className="mt-6 font-avenir font-regular text-[14px] lap:text-[16px] leading-relaxed text-[#e6e6e6]/80 max-w-115">
+                  {desc}
+                </p>
+              </div>
 
-              <div className="mt-8 bg-linear-to-r from-[#0B0F1A] to-[#14192D] rounded-[12px] px-8 py-6">
-                <div className="grid grid-cols-2 gap-x-10 gap-y-5">
+              {/* features box */}
+              <div className="mt-5 pl-10 lap:pl-20 w-full lap:w-157.5 bg-linear-to-r from-[#0B0F1A] to-[#14192D] rounded-bl-[90px] px-10 py-12">
+                <div className="grid grid-cols-2 gap-x-5 gap-y-6">
                   {features.map((f, idx) => (
                     <p
                       key={idx}
-                      className="font-avenir font-black text-[10px] leading-snug text-white/90 whitespace-pre-line"
+                      className="font-avenir font-black text-[13px] lap:text-[16px] leading-snug text-[#e6e6e6]/90 whitespace-pre-line"
                     >
                       {f}
                     </p>
@@ -196,6 +227,7 @@ function OverlapProductRow({
   );
 }
 
+
 export default function ProductPage() {
   return (
     <div className="min-h-screen w-full bg-[#e6e6e6] overflow-x-hidden">
@@ -204,10 +236,11 @@ export default function ProductPage() {
         {/* IMAGE FULL-BLEED kiri (LAP) */}
         <div
           className="
+            group
             hidden lap:block
             absolute left-0 top-0
-            translate-y-[70px]
-            h-[650px]
+            translate-y-17.5
+            h-162.5
             overflow-hidden
             right-[calc((100vw-1152px)/2+430px-30px)]
         "
@@ -217,44 +250,44 @@ export default function ProductPage() {
             alt="HYRA"
             fill
             priority
-            className="object-cover"
+            className={`object-cover ${HOVER_BRIGHT_GROUP}`}
           />
         </div>
 
         {/* CONTENT CENTER */}
         <div className="max-w-6xl mx-auto px-6 pt-10 lap:pt-12">
           {/* MOBILE IMAGE (biar di mobile tetap normal) */}
-          <div className="lap:hidden mt-8">
-            <div className="relative w-full aspect-[16/10] overflow-hidden">
+          <div className="group lap:hidden mt-8">
+            <div className="relative w-full aspect-16/10 overflow-hidden">
               <Image
                 src="/product.png"
                 alt="HYRA"
                 fill
                 priority
-                className="object-cover"
+                className={`object-cover ${HOVER_BRIGHT_GROUP}`}
               />
             </div>
           </div>
 
           {/* RIGHT SIDE (CARD + DESC) */}
-          <div className="mt-8 lap:mt-10 lap:pt-[27px]">
+          <div className="mt-8 lap:mt-10 lap:pt-6.75">
             {/* Bikin wrapper lebih lebar biar DESC bisa lebih lebar dari card */}
-            <div className="relative lap:ml-auto lap:w-[900px] overflow-visible">
+            <div className="relative lap:ml-auto lap:w-225 overflow-visible">
               {/* CARD (lebih sempit + overlap ke kiri) */}
               <div
                 className="
                     relative z-10
-                    w-[200px] lap:w-[400px]
+                    w-50 lap:w-100
                     bg-[#3F3F3F] text-[#f5f5f5]
                     lap:px-14 lap:pt-26 lap:pb-19
                     px-10 pt-10 pb-15
                     rounded-tr-[110px] rounded-bl-[110px]
                     rounded-tl-none rounded-br-none
-                    lap:ml-[480px]
+                    lap:ml-120
                     shadow-[0_30px_90px_rgba(0,0,0,0.18)]
                 "
               >
-                <h1 className="mt-5 lap:mt-8 font-avenir font-black text-[44px] lap:text-[75px] leading-[1]">
+                <h1 className="mt-5 lap:mt-8 font-avenir font-black text-[44px] lap:text-[75px] leading-none">
                   HYRA
                 </h1>
 
@@ -274,8 +307,8 @@ export default function ProductPage() {
                     text-[14px] lap:text-[16px]
                     leading-tight text-[#131524]
                     w-full
-                    lap:w-[455px]
-                    lap:ml-[540px]
+                    lap:w-113.75
+                    lap:ml-135
                 "
               >
                 Waterproofing dengan system coating membrane memadukan antara
@@ -322,8 +355,8 @@ export default function ProductPage() {
       {/* ===== HYRON ===== */}
       <section className="relative w-full overflow-hidden">
         {/* tekstur kiri */}
-        <div className="pointer-events-none select-none absolute left-[-40px] lap:left-[-100px] top-[-70px] lap:top-[-155px] w-[200px] lap:w-[470px] opacity-100">
-          <div className="relative w-full aspect-[3/4]">
+        <div className="pointer-events-none select-none absolute -left-10 lap:-left-25 -top-17.5 lap:-top-38.75 w-50 lap:w-117.5 opacity-100">
+          <div className="relative w-full aspect-3/4">
             <Image
               src="/tekstur.png"
               alt="Texture"
@@ -336,15 +369,16 @@ export default function ProductPage() {
         {/* IMAGE FULL-BLEED kanan (LAP) */}
         <div
           className="
+            group
             hidden lap:block
             absolute right-0
-            top-[70px]
-            h-[570px]
+            top-17.5
+            h-142.5
             overflow-hidden
             left-[calc((100vw-1152px)/2+750px)]
             "
         >
-          <Image src="/hyron.png" alt="HYRON" fill className="object-cover" />
+          <Image src="/hyron.png" alt="HYRON" fill className={`object-cover ${HOVER_BRIGHT_GROUP}`} />
         </div>
 
         {/* CONTENT CENTER */}
@@ -352,14 +386,14 @@ export default function ProductPage() {
           <div className="grid gap-10 lap:grid-cols-[610px_1fr] lap:items-center">
             {/* TEXT */}
             <div className="text-right justify-self-end lap:pt-10">
-              <h2 className="font-avenir font-black text-[44px] lap:text-[50px] text-[#131524] leading-[1]">
+              <h2 className="font-avenir font-black text-[44px] lap:text-[50px] text-[#131524] leading-none">
                 HYRON
               </h2>
               <p className="mt-2 font-avenir font-black text-[14px] lap:text-[26px] text-[#131524] leading-snug">
                 Epoxy Pool &<br />
                 Wet Area Waterproofing
               </p>
-              <p className="mt-6 font-avenir font-medium text-[11px] lap:text-[16px] text-[#131524] leading-relaxed max-w-[450px] ml-auto">
+              <p className="mt-6 font-avenir font-medium text-[11px] lap:text-[16px] text-[#131524] leading-relaxed max-w-112.5 ml-auto">
                 Waterproofing berbahan dasar epoxy untuk area kolam, GWT, IPAL,
                 planter box, dan roof garden. Memiliki daya rekat tinggi,
                 permukaan tanpa pori, dan kekerasan maksimal, sehingga tahan
@@ -369,13 +403,13 @@ export default function ProductPage() {
             </div>
 
             {/* IMAGE (mobile/tablet) */}
-            <div className="relative w-full lap:hidden">
-              <div className="relative w-full aspect-[16/10] overflow-hidden">
+            <div className="group relative w-full lap:hidden">
+              <div className="relative w-full aspect-16/10 overflow-hidden">
                 <Image
                   src="/hyron.png"
                   alt="HYRON"
                   fill
-                  className="object-cover"
+                  className={`object-cover ${HOVER_BRIGHT_GROUP}`}
                 />
               </div>
             </div>
@@ -390,13 +424,12 @@ export default function ProductPage() {
         </div>
 
         <HighlightBar
-          colsLap={4}
+          colsLap={5}
           items={[
             {
-              head: "Tahan Bahan Kimia, Akar",
-              sub: "Tanaman, dan Rendaman Air",
+              head: "Tahan Bahan Kimia, Akar Tanaman, dan Rendaman Air",
             },
-            { head: "Daya Rekat Tinggi pada", sub: "Beton" },
+            { head: "Daya Rekat Tinggi pada Beton" },
             { head: "Waktu Pengeringan Cepat" },
           ]}
         />
@@ -404,33 +437,88 @@ export default function ProductPage() {
 
       {/* ===== HYSEAL + HYCEM ===== */}
       <section className="w-full">
-        <div className="max-w-6xl mx-auto px-6 py-16 lap:py-20">
-          <div className="grid gap-14 lap:grid-cols-2 lap:gap-10">
-            {/* HYSEAL (text outer-left, image inner-right) */}
-            <div className="grid gap-8 lap:grid-cols-[1fr_320px] lap:items-center">
+        <div className="mt-18 max-w-7xl mx-auto px-6 py-5 lap:py-5">
+          {/* DESKTOP / LAP */}
+          <div className="hidden lap:grid grid-cols-[170px_1fr_1fr_170px] gap-x-5 gap-y-10 items-center overflow-visible">
+            {/* LEFT TEXT: HYSEAL */}
+            <div className="mt-70 text-right lap:-ml-7.5">
+              <h3 className="font-avenir font-black text-[52px] text-[#131524] leading-none">
+                HYSEAL
+              </h3>
+              <p className="mt-6 font-avenir font-black text-[26px] text-[#131524] leading-snug">
+                <span className="whitespace-nowrap">Elastomeric Wall</span>
+                <br />
+                Waterproofing
+              </p>
+            </div>
+            {/* IMAGE HYSEAL */}
+            <div className="group relative w-full h-107.5 overflow-hidden">
+              <Image
+                src="/hyseal.png"
+                alt="HYSEAL"
+                fill
+                className={`object-cover ${HOVER_BRIGHT_GROUP}`}
+              />
+            </div>
+            {/* IMAGE HYCEM */}
+            <div className="group relative w-full h-107.5 overflow-hidden">
+              <Image
+                src="/hycem.png"
+                alt="HYCEM"
+                fill
+                className={`object-cover ${HOVER_BRIGHT_GROUP}`}
+              />
+            </div>
+            {/* RIGHT TEXT: HYCEM */}
+            <div className="mt-70 text-left">
+              <h3 className="font-avenir font-black text-[52px] text-[#131524] leading-none">
+                HYCEM
+              </h3>
+              <p className="mt-6 font-avenir font-black text-[26px] text-[#131524] leading-snug">
+                <span className="whitespace-nowrap">Cement-Based</span>
+                <br />
+                Waterproofing
+              </p>
+            </div>
+            {/* DESC ROW */}
+            <div /> {/* empty left spacer */}
+            <p className="text-right font-avenir font-medium text-[16px] text-[#131524] leading-relaxed relative w-125 -ml-21.25">
+              Waterproofing berbahan dasar Acrylic Elastomeric dirancang khusus
+              untuk area dinding bangunan. Tahan terhadap perubahan cuaca
+              extreme baik hujan maupun sinar UV dengan tingkat elastis maksimal
+              sehingga dapat melindungi dinding dari retakan.
+            </p>
+            <p className="text-left font-avenir font-medium text-[16px] text-[#131524] leading-relaxed relative w-125 -mr-21.25 lap:-mt-6.5">
+              Waterproofing berbahan dasar Semen dan Polymer dirancang efektif
+              dan efisien sebagai perlindungan terhadap air dengan penggunaan
+              conceal system.
+            </p>
+            <div /> {/* empty right spacer */}
+          </div>
+
+          {/* MOBILE (biar nggak ribet, tetap stack) */}
+          <div className="lap:hidden grid gap-10">
+            {/* HYSEAL */}
+            <div className="grid gap-6">
               <div className="text-center">
-                <h3 className="font-avenir font-black text-[34px] lap:text-[38px] text-black/85 leading-[1]">
+                <h3 className="font-avenir font-black text-[36px] text-[#131524] leading-none">
                   HYSEAL
                 </h3>
-                <p className="mt-3 font-avenir font-black text-[14px] text-black/75 leading-snug">
+                <p className="mt-3 font-avenir font-black text-[16px] text-[#131524] leading-snug">
                   Elastomeric Wall
                   <br />
                   Waterproofing
                 </p>
               </div>
-
-              <div className="relative w-full">
-                <div className="relative w-full aspect-square overflow-hidden">
-                  <Image
-                    src="/hyseal.png"
-                    alt="HYSEAL"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              <div className="group relative w-full aspect-square overflow-hidden">
+                <Image
+                  src="/hyseal.png"
+                  alt="HYSEAL"
+                  fill
+                  className={`object-cover ${HOVER_BRIGHT_GROUP}`}
+                />
               </div>
-
-              <p className="lap:col-span-2 font-avenir font-regular text-[11px] lap:text-[12px] text-black/70 leading-relaxed">
+              <p className="font-avenir font-medium text-[14px] text-[#131524] leading-relaxed text-center">
                 Waterproofing berbahan dasar Acrylic Elastomeric dirancang
                 khusus untuk area dinding bangunan. Tahan terhadap perubahan
                 cuaca extreme baik hujan maupun sinar UV dengan tingkat elastis
@@ -438,31 +526,27 @@ export default function ProductPage() {
               </p>
             </div>
 
-            {/* HYCEM (image inner-left, text outer-right) */}
-            <div className="grid gap-8 lap:grid-cols-[320px_1fr] lap:items-center">
-              <div className="relative w-full">
-                <div className="relative w-full aspect-square overflow-hidden">
-                  <Image
-                    src="/hycem.png"
-                    alt="HYCEM"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-
-              <div className="text-left">
-                <h3 className="font-avenir font-black text-[34px] lap:text-[38px] text-black/85 leading-[1]">
+            {/* HYCEM */}
+            <div className="grid gap-6">
+              <div className="text-center">
+                <h3 className="font-avenir font-black text-[36px] text-[#131524] leading-none">
                   HYCEM
                 </h3>
-                <p className="mt-3 font-avenir font-black text-[14px] text-black/75 leading-snug">
+                <p className="mt-3 font-avenir font-black text-[16px] text-[#131524] leading-snug">
                   Cement-Based
                   <br />
                   Waterproofing
                 </p>
               </div>
-
-              <p className="lap:col-span-2 font-avenir font-regular text-[11px] lap:text-[12px] text-black/70 leading-relaxed">
+              <div className="group relative w-full aspect-square overflow-hidden">
+                <Image
+                  src="/hycem.png"
+                  alt="HYCEM"
+                  fill
+                  className={`object-cover ${HOVER_BRIGHT_GROUP}`}
+                />
+              </div>
+              <p className="font-avenir font-medium text-[14px] text-[#131524] leading-relaxed text-center">
                 Waterproofing berbahan dasar Semen dan Polymer dirancang efektif
                 dan efisien sebagai perlindungan terhadap air dengan penggunaan
                 conceal system.
@@ -476,7 +560,6 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* two separated highlight boxes (match screenshot) */}
         <SplitHighlightBoxes
           left={[
             {
