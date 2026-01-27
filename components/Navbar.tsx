@@ -1,67 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
-  { href: "/", label: "HOME" },
-  { href: "/product", label: "PRODUCT" },
-  { href: "/about-us", label: "ABOUT US" },
+  { href: "/site/home", label: "HOME" },
+  { href: "/site/product", label: "PRODUCT" },
+  { href: "/site/about-us", label: "ABOUT US" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-
-  const lastY = useRef(0);
-  const ticking = useRef(false);
-
-  useEffect(() => {
-    lastY.current = window.scrollY;
-
-    const onScroll = () => {
-      const currentY = window.scrollY;
-
-      // Optional: kalau menu mobile lagi kebuka, jangan hide (biar UX gak aneh)
-      if (open) return;
-
-      if (!ticking.current) {
-        window.requestAnimationFrame(() => {
-          const goingDown = currentY > lastY.current;
-          const delta = Math.abs(currentY - lastY.current);
-
-          // ignore scroll kecil biar gak jitter
-          if (delta > 6) {
-            // Kalau sudah agak turun, baru boleh hide
-            if (goingDown && currentY > 80) setHidden(true);
-            // Scroll ke atas -> show lagi
-            if (!goingDown) setHidden(false);
-          }
-
-          lastY.current = currentY;
-          ticking.current = false;
-        });
-
-        ticking.current = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [open]);
 
   return (
     <header
-      className={[
-        "fixed top-0 left-0 w-full z-50 flex justify-center pt-6",
-        "transition-transform duration-500 ease-out",
-        hidden ? "-translate-y-[120%]" : "translate-y-0",
-      ].join(" ")}
-      // biar tidak nahan klik area kosong di atas
+      className="fixed top-0 left-0 w-full z-50 flex justify-center pt-6"
       style={{ pointerEvents: "none" }}
     >
-      <div className="w-[92%] max-w-7xl relative" style={{ pointerEvents: "auto" }}>
+      <div
+        className="w-[92%] max-w-7xl relative"
+        style={{ pointerEvents: "auto" }}
+      >
         <nav
           className="
             rounded-full
@@ -74,19 +34,31 @@ export default function Navbar() {
           "
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <Image src="/logo.png" alt="Nuve Pluvia" width={90} height={90} priority />
+          <Link
+            href="/site/home"
+            className="flex items-center"
+            onClick={() => setOpen(false)}
+          >
+            <Image
+              src="/logo.png"
+              alt="Nuve Pluvia"
+              width={90}
+              height={90}
+              priority
+            />
           </Link>
 
           {/* Desktop Menu */}
-<ul className="hidden md:flex items-center gap-14 text-[14px] md:text-[19px] font-black tracking-wider font-[Avenir]">
-  {navItems.map((item) => (
-    <li key={item.href} className="hover:opacity-75 transition-opacity">
-      <Link href={item.href}>{item.label}</Link>
-    </li>
-  ))}
-</ul>
-
+          <ul className="hidden md:flex items-center gap-14 text-[14px] md:text-[19px] font-black tracking-wider font-[Avenir]">
+            {navItems.map((item) => (
+              <li
+                key={item.href}
+                className="hover:opacity-75 transition-opacity"
+              >
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
 
           {/* Mobile Button */}
           <button
