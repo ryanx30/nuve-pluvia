@@ -298,7 +298,7 @@ export default function AboutUsPage() {
                   Segmen Utama – Maintenance Building
                 </p>
 
-                <p className="mt-5 font-avenir font-medium text-[14px] lap:text-[16px] text-[#e6e6e6]/80 leading-relaxed max-w-[370px] lap:max-w-112.5">
+                <p className="mt-5 font-avenir font-medium text-[14px] lap:text-[16px] text-[#e6e6e6]/80 leading-relaxed max-w-92.5 lap:max-w-112.5">
                   Bangunan berisiko tinggi yang sudah beroperasional dan
                   membutuhkan solusi waterproofing efektif tanpa mengganggu
                   aktivitas harian gedung.

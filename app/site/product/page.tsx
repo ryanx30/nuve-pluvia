@@ -41,16 +41,24 @@ function HighlightBar({
         className={[
           "max-w-7xl mx-auto px-6 lap:px-1",
           "py-9",
-          "grid gap-y-6 gap-x-6 lap:gap-x-9",
+          "grid gap-y-4 gap-x-4 lap:gap-x-9",
           "grid-cols-2",
           colsLap === 3 ? "lap:grid-cols-3" : "lap:grid-cols-5",
         ].join(" ")}
       >
         {items.map((it, idx) => (
-          <div key={idx} className="text-[#e6e6e6]">
+          <div
+            key={idx}
+            className={[
+              "text-[#e6e6e6]",
+              idx % 2 === 0 ? "text-right" : "text-left", // mobile
+              "lap:text-left", // laptop balik normal
+            ].join(" ")}
+          >
             <p className="font-avenir font-black text-[13px] lap:text-[16px] leading-snug">
               {it.head}
             </p>
+
             {it.sub ? (
               <p className="mt-1 font-avenir font-medium text-[14px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
                 {it.sub}
@@ -227,10 +235,9 @@ function OverlapProductRow({
   );
 }
 
-
 export default function ProductPage() {
   return (
-    <div className="min-h-screen w-full pt-28 lap:pt-32 bg-[#e6e6e6] overflow-x-hidden">
+    <div className="min-h-screen w-full pt-15 lap:pt-32 bg-[#e6e6e6] overflow-x-hidden">
       {/* ===== TOP / HYRA ===== */}
       <section className="relative w-full overflow-hidden">
         {/* IMAGE FULL-BLEED kiri (LAP) */}
@@ -380,7 +387,12 @@ export default function ProductPage() {
             left-[calc((100vw-1152px)/2+750px)]
             "
         >
-          <Image src="/hyron.png" alt="HYRON" fill className={`object-cover ${HOVER_BRIGHT_GROUP}`} />
+          <Image
+            src="/hyron.png"
+            alt="HYRON"
+            fill
+            className={`object-cover ${HOVER_BRIGHT_GROUP}`}
+          />
         </div>
 
         {/* CONTENT CENTER */}
@@ -528,6 +540,25 @@ export default function ProductPage() {
               </p>
             </div>
 
+            {/* centered highlight title */}
+            <div className="pt-2 lap:hidden">
+              <SectionTitle align="center">highlight product</SectionTitle>
+            </div>
+
+            {/* MOBILE: pakai HighlightBar (gambar kiri) */}
+            <div className="lap:hidden -mx-6 lap:mx-0 ">
+              <HighlightBar
+                colsLap={3}
+                items={[
+                  {
+                    head: "Tahan Cuaca Panas & Hujan,",
+                    sub: "elastis mencegah keretakan",
+                  },
+                  { head: "Tidak Lengket & Beragam", sub: "Pilihan Warna" },
+                ]}
+              />
+            </div>
+
             {/* HYCEM */}
             <div className="grid gap-6">
               <div className="text-center">
@@ -554,30 +585,50 @@ export default function ProductPage() {
                 conceal system.
               </p>
             </div>
-          </div>
+            {/* centered highlight title */}
+            <div className="pt-2 lap:hidden">
+              <SectionTitle align="center">highlight product</SectionTitle>
+            </div>
 
-          {/* centered highlight title */}
-          <div className="pt-10">
-            <SectionTitle align="center">highlight product</SectionTitle>
+            {/* MOBILE: pakai HighlightBar (gambar kanan) */}
+            <div className="lap:hidden -mx-6 lap:mx-0 ">
+              <HighlightBar
+                colsLap={3}
+                items={[
+                  {
+                    head: "Mudah Diaplikasikan dengan",
+                    sub: "Tingkat Kekerasan Tinggi",
+                  },
+                  { head: "Waktu Pengeringan Cepat", sub: "dan Efisien" },
+                ]}
+              />
+            </div>
           </div>
         </div>
 
-        <SplitHighlightBoxes
-          left={[
-            {
-              head: "Tahan Cuaca Panas & Hujan,",
-              sub: "elastis mencegah keretakan",
-            },
-            { head: "Tidak Lengket & Beragam", sub: "Pilihan Warna" },
-          ]}
-          right={[
-            {
-              head: "Mudah Diaplikasikan dengan",
-              sub: "Tingkat Kekerasan Tinggi",
-            },
-            { head: "Waktu Pengeringan Cepat", sub: "dan Efisien" },
-          ]}
-        />
+        {/* centered highlight title */}
+        <div className="hidden lap:block lap:pt-10">
+          <SectionTitle align="center">highlight product</SectionTitle>
+        </div>
+
+        <div className="hidden lap:block">
+          <SplitHighlightBoxes
+            left={[
+              {
+                head: "Tahan Cuaca Panas & Hujan,",
+                sub: "elastis mencegah keretakan",
+              },
+              { head: "Tidak Lengket & Beragam", sub: "Pilihan Warna" },
+            ]}
+            right={[
+              {
+                head: "Mudah Diaplikasikan dengan",
+                sub: "Tingkat Kekerasan Tinggi",
+              },
+              { head: "Waktu Pengeringan Cepat", sub: "dan Efisien" },
+            ]}
+          />
+        </div>
       </section>
 
       {/* ===== HYRA PU / HYGROUT / HYTAFT ===== */}
