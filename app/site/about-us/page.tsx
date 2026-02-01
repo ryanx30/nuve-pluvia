@@ -110,7 +110,7 @@ export default function AboutUsPage() {
                 about us
               </h1>
 
-              <p className="mt-4 font-avenir font-medium text-[14px] lap:text-[16px] leading-tight text-[#131524] max-w-143.75">
+              <p className="mt-4 font-avenir font-medium text-[14px] lap:text-[16px] leading-relaxed text-[#131524] max-w-143.75">
                 <span className="font-black">PT. Nuve Pluvia Solution</span>{" "}
                 adalah perusahaan{" "}
                 <span className="italic">specialist waterproofing</span> yang
@@ -121,7 +121,7 @@ export default function AboutUsPage() {
                 memahami tantangan air di lingkungan tropis dan ekstrem.
               </p>
 
-              <p className="mt-4 font-avenir font-medium text-[14px] lap:text-[16px] leading-tight text-[#131524] max-w-137.5">
+              <p className="mt-4 font-avenir font-medium text-[14px] lap:text-[16px] leading-relaxed text-[#131524] max-w-137.5">
                 Dengan fokus pada kualitas, ketepatan solusi, dan kepercayaan,
                 NUVE hadir sebagai partner andal untuk perlindungan jangka
                 panjang setiap bangunan.
@@ -144,7 +144,7 @@ export default function AboutUsPage() {
                   />
 
                   <div className="relative text-[#e6e6e6] px-8 py-6 max-w-112.5">
-                    <p className="font-avenir font-medium text-[14px] lap:text-[16px] leading-thight">
+                    <p className="font-avenir font-medium text-[14px] lap:text-[16px] leading-relaxed">
                       Menjadi solusi waterproofing terpercaya yang melindungi
                       bangunan dari hujan dengan kualitas dan keandalan terbaik.
                     </p>
@@ -161,7 +161,7 @@ export default function AboutUsPage() {
                 <div className="mt-3 relative inline-block overflow-visible">
                   <div
                     className="
-                    absolute inset-0 lp:-right-10
+                    absolute inset-0 lap:-right-10
                     bg-linear-to-r from-[#0B0F1A] to-[#14192D]
                     rounded-tr-[60px] rounded-bl-[60px]
                     rounded-tl-none rounded-br-none
@@ -169,7 +169,7 @@ export default function AboutUsPage() {
                   />
 
                   <div className="relative text-[#e6e6e6] px-8 py-6 max-w-135">
-                    <p className="font-avenir font-medium text-[14px] lap:text-[16px] leading-thight">
+                    <p className="font-avenir font-medium text-[14px] lap:text-[16px] leading-relaxed">
                       Menghadirkan solusi perlindungan yang efektif dan
                       berkelanjutan. Menjaga standar kualitas tinggi dalam
                       setiap pengerjaan. Membangun kepercayaan melalui hasil
@@ -183,9 +183,9 @@ export default function AboutUsPage() {
 
           {/* OUR VALUES */}
           <div className="mt-10 lap:mt-10">
-            <h2 className="font-made font-bold text-[30px] lap:text-[50px] text-[#131524]">
+            <h1 className="font-made font-bold text-[40px] lap:text-[50px] text-[#131524]">
               our values
-            </h2>
+            </h1>
 
             <div className="mt-8 grid gap-6 lap:gap-14 lap:grid-cols-4">
               {values.map((v, idx) => (
@@ -226,9 +226,9 @@ export default function AboutUsPage() {
 
           {/* BRAND PERSONALITY */}
           <div className="mt-16 lap:mt-20">
-            <h2 className="font-made font-bold text-[30px] lap:text-[50px] text-[#131524]">
+            <h1 className="font-made font-bold text-[40px] lap:text-[50px] text-[#131524]">
               brand personality
-            </h2>
+            </h1>
 
             <div className="mt-10 grid gap-y-14 gap-x-10 lap:grid-cols-2 lap:gap-x-10">
               {personalities.map((p, idx) => {
@@ -286,19 +286,19 @@ export default function AboutUsPage() {
       {/* ===== TARGET MARKET (DARK) ===== */}
       <section className="w-full bg-linear-to-r from-[#0B0F1A] to-[#14192D] text-[#e6e6e6]">
         <div className="max-w-7xl mx-auto px-6 py-16 lap:py-20">
-          <div className="grid gap-10 lap:grid-cols-[1.05fr_0.95fr] lap:items-start">
+          <div className="grid gap-12 lap:gap-10 lap:grid-cols-[1.05fr_0.95fr] lap:items-start">
             {/* LEFT TEXT */}
             <div>
-              <h2 className="font-made font-bold text-[34px] lap:text-[50px] leading-none">
+              <h1 className="font-made font-bold text-[40px] lap:text-[50px] leading-none">
                 target market
-              </h2>
+              </h1>
 
               <div className="mt-10">
                 <p className="font-avenir font-black text-[16px] lap:text-[16px]">
                   Segmen Utama – Maintenance Building
                 </p>
 
-                <p className="mt-5 font-avenir font-medium text-[15px] lap:text-[16px] text-[#e6e6e6]/80 leading-tight max-w-112.5">
+                <p className="mt-5 font-avenir font-medium text-[14px] lap:text-[16px] text-[#e6e6e6]/80 leading-relaxed max-w-[370px] lap:max-w-112.5">
                   Bangunan berisiko tinggi yang sudah beroperasional dan
                   membutuhkan solusi waterproofing efektif tanpa mengganggu
                   aktivitas harian gedung.
@@ -308,7 +308,7 @@ export default function AboutUsPage() {
                   Jenis Bangunan:
                 </p>
 
-                <ul className="mt-4 space-y-0.5 font-avenir font-medium text-[15px] lap:text-[15px] text-[#e6e6e6]/80 pl-8">
+                <ul className="mt-4 space-y-1 font-avenir font-medium text-[14px] lap:text-[15px] text-[#e6e6e6]/80 pl-8">
                   <li>Pusat perbelanjaan (mall)</li>
                   <li>Rumah sakit & fasilitas kesehatan</li>
                   <li>Hotel & hospitality building</li>
@@ -320,179 +320,174 @@ export default function AboutUsPage() {
             </div>
 
             {/* RIGHT DONUT + LABELS */}
-            <div className="relative flex justify-center lap:justify-end">
-              {/* Left labels */}
-              <div
-                className="
+            <div className="relative">
+              {/* Wrapper supaya donut selalu “center” di mobile, “kanan” di laptop */}
+              <div className="relative mx-auto w-fit lap:ml-auto">
+                {/* Labels (responsif, gak pakai left/top ekstrem) */}
+                <div
+                  className="
                     absolute
-                    left-15 top-3
+                    left-0 top-0
+                    -translate-x-[15%]
+                    translate-y-[20%]
+                    lap:-translate-x-[10%]
+                    lap:translate-y-[200%]
                     font-made font-medium text-[13px] text-[#e6e6e6]/90
-                    lap:-left-15 lap:top-22.5
                     lap:text-[15px]
-                "
-              >
-                Penjualan Material
-                <br />
-                Langsung
-              </div>
+                  "
+                >
+                  Penjualan Material
+                  <br />
+                  Langsung
+                </div>
 
-              <div
-                className="
+                <div
+                  className="
                     absolute
-                    left-0 top-21
-                    font-made font-medium text-[13px] text-[#e6e6e6]/90
-                    lap:-left-40 lap:top-60
+                    left-0 top-0
+                    -translate-x-[50%]
+                    translate-y-[150%]
+                    lap:-translate-x-[70%]
+                    lap:translate-y-[530%]
+                    font-made font-medium text-[14px] text-[#e6e6e6]/90
                     lap:text-[15px]
-                "
-              >
-                Segmen Sekunder –
-                <br />
-                Proyek Baru &amp; Industri
-              </div>
+                  "
+                >
+                  Segmen Sekunder –
+                  <br />
+                  Proyek Baru &amp; Industri
+                </div>
 
-              {/* Donut */}
-              <div
-                className="
+                {/* Donut */}
+                <div
+                  className="
                     font-made font-medium
-                    relative
-                    ml-33 lap:ml-0
-                    w-65 h-65
+                    w-55 h-55
                     lap:w-140 lap:h-140
+                    translate-x-20
                     lap:translate-y-10
                     transition-transform duration-300 ease-out
                     lap:hover:scale-[1.1]
                     origin-center
-                "
-              >
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  {(() => {
-                    const cx = 100;
-                    const cy = 100;
+                  "
+                >
+                  <svg viewBox="0 0 200 200" className="w-full h-full">
+                    {(() => {
+                      const cx = 100;
+                      const cy = 100;
 
-                    // DONUT SPEK
-                    const rOuterFixed = 91;
-                    const stroke = 65; // makin besar = makin tebel ke arah hole
-                    const r = rOuterFixed - stroke / 2;
+                      // DONUT SPEK (tetap)
+                      const rOuterFixed = 91;
+                      const stroke = 65;
+                      const r = rOuterFixed - stroke / 2;
 
-                    // radius batas luar/dalam (buat garis separator)
-                    const rOuter = r + stroke / 2; // 91
-                    const rInner = r - stroke / 2; // 49
+                      const rOuter = r + stroke / 2;
+                      const rInner = r - stroke / 2;
 
-                    // START ANGLE: garis horizontal kiri
-                    const a0 = 250;
+                      const a0 = 250;
+                      const a1 = a0 - 360 * 0.12;
+                      const a2 = a1 - 360 * 0.08;
 
-                    // urutan segmen kecil (8% dulu, lalu 12%) -> total 20% di kiri-atas
-                    const a1 = a0 - 360 * 0.12; // batas 12%
-                    const a2 = a1 - 360 * 0.08; // batas 8%
+                      const degToRad = (d: number) => (d * Math.PI) / 180;
 
-                    const degToRad = (d: number) => (d * Math.PI) / 180;
+                      const sepIn = 3;
+                      const sepOut = 1;
 
-                    // tambah ini
-                    const sepIn = 3;
-                    const sepOut = 1;
+                      const lineAt = (deg: number) => {
+                        const rad = degToRad(deg);
+                        const startR = rInner - sepIn;
+                        const endR = rOuter + sepOut;
 
-                    const lineAt = (deg: number) => {
-                      const rad = degToRad(deg);
-
-                      const startR = rInner - sepIn;
-                      const endR = rOuter + sepOut;
-
-                      return {
-                        x1: cx + startR * Math.cos(rad),
-                        y1: cy + startR * Math.sin(rad),
-                        x2: cx + endR * Math.cos(rad),
-                        y2: cy + endR * Math.sin(rad),
+                        return {
+                          x1: cx + startR * Math.cos(rad),
+                          y1: cy + startR * Math.sin(rad),
+                          x2: cx + endR * Math.cos(rad),
+                          y2: cy + endR * Math.sin(rad),
+                        };
                       };
-                    };
 
-                    const labelPos = (deg: number, rr: number) => {
-                      const rad = degToRad(deg);
-                      return {
-                        x: cx + rr * Math.cos(rad),
-                        y: cy + rr * Math.sin(rad),
+                      const labelPos = (deg: number, rr: number) => {
+                        const rad = degToRad(deg);
+                        return {
+                          x: cx + rr * Math.cos(rad),
+                          y: cy + rr * Math.sin(rad),
+                        };
                       };
-                    };
 
-                    // midpoint angle tiap segmen
-                    const mid12 = (a0 + a1) / 2;
-                    const mid8 = (a1 + a2) / 2;
+                      const mid12 = (a0 + a1) / 2;
+                      const mid8 = (a1 + a2) / 2;
+                      const mid80 = a2 - (360 * 0.8) / 2;
 
-                    // segmen 80% (sisanya)
-                    const mid80 = a2 - (360 * 0.8) / 2;
+                      const p8 = labelPos(mid8, 70);
+                      const p12 = labelPos(mid12, 60);
+                      const p80 = labelPos(mid80, 60);
 
-                    const p8 = labelPos(mid8, 70);
-                    const p12 = labelPos(mid12, 60);
-                    const p80 = labelPos(mid80, 60);
+                      return (
+                        <>
+                          <circle
+                            cx={cx}
+                            cy={cy}
+                            r={r}
+                            fill="none"
+                            stroke="#e6e6e6"
+                            strokeWidth={stroke}
+                          />
 
-                    return (
-                      <>
-                        {/* ring full (abu) */}
-                        <circle
-                          cx={cx}
-                          cy={cy}
-                          r={r}
-                          fill="none"
-                          stroke="#e6e6e6"
-                          strokeWidth={stroke}
-                        />
+                          {[a0, a1, a2].map((a, i) => {
+                            const L = lineAt(a);
+                            return (
+                              <line
+                                key={`sep-${i}`}
+                                {...L}
+                                stroke="#0B0F1A"
+                                strokeWidth="3"
+                                strokeLinecap="butt"
+                              />
+                            );
+                          })}
 
-                        {/* separators tebel (gelap) */}
-                        {[a0, a1, a2].map((a, i) => {
-                          const L = lineAt(a);
-                          return (
-                            <line
-                              key={`sep-${i}`}
-                              {...L}
-                              stroke="#0B0F1A"
-                              strokeWidth="3"
-                              strokeLinecap="butt"
-                            />
-                          );
-                        })}
+                          <circle cx={cx} cy={cy} r="23" fill="#e6e6e6" />
 
-                        {/* hole */}
-                        <circle cx={cx} cy={cy} r="23" fill="#e6e6e6" />
+                          <text
+                            x={p12.x}
+                            y={p12.y}
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fontSize="11"
+                            fontWeight="500"
+                            fill="#0B0F1A"
+                          >
+                            12%
+                          </text>
 
-                        {/* percent labels */}
-                        <text
-                          x={p12.x}
-                          y={p12.y}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fontSize="11"
-                          fontWeight="500"
-                          fill="#0B0F1A"
-                        >
-                          12%
-                        </text>
+                          <text
+                            x={p8.x}
+                            y={p8.y}
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fontSize="11"
+                            fontWeight="500"
+                            fill="#0B0F1A"
+                          >
+                            8%
+                          </text>
 
-                        <text
-                          x={p8.x}
-                          y={p8.y}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fontSize="11"
-                          fontWeight="500"
-                          fill="#0B0F1A"
-                        >
-                          8%
-                        </text>
-
-                        <text
-                          x={p80.x}
-                          y={p80.y}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fontSize="11"
-                          fontWeight="500"
-                          fill="#0B0F1A"
-                        >
-                          80%
-                        </text>
-                      </>
-                    );
-                  })()}
-                </svg>
+                          <text
+                            x={p80.x}
+                            y={p80.y}
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fontSize="11"
+                            fontWeight="500"
+                            fill="#0B0F1A"
+                          >
+                            80%
+                          </text>
+                        </>
+                      );
+                    })()}
+                  </svg>
+                </div>
               </div>
             </div>
           </div>

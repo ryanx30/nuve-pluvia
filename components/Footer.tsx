@@ -6,17 +6,15 @@ export default function Footer() {
       <div
         className="
           max-w-7xl mx-auto
-          px-6
-          py-7
-          flex flex-col md:flex-row
-          items-start md:items-center
-          justify-between
-          gap-7
+          px-6 py-7
+          flex flex-row items-center justify-between
+          md:flex-row md:items-center
+          gap-6
           text-white
         "
       >
         {/* Left Content */}
-        <div className="text-[14px] lap:text-[17px] leading-[1.1] text-white/85 max-w-xl">
+        <div className="text-[8px] lap:text-[17px] leading-[1.1] text-white/85 max-w-62.5 lap:max-w-xl">
           <p>
             Ruko The Springs SPRU No.32, Jl. Gading Golf Boulevard, Cihuni,
             Pagedangan, Tangerang Regency, Banten 15332
@@ -26,8 +24,26 @@ export default function Footer() {
         </div>
 
         {/* Right Logo */}
-        <div className="flex items-center">
-          <Image src="/logo.png" alt="Nuve Pluvia" width={100} height={100} />
+        <div className="shrink-0 flex items-center">
+          {/* Mobile */}
+          <Image
+            src="/logo.png"
+            alt="Nuve Pluvia"
+            width={50}
+            height={50}
+            className="lap:hidden"
+            priority
+          />
+
+          {/* Laptop */}
+          <Image
+            src="/logo.png"
+            alt="Nuve Pluvia"
+            width={100}
+            height={100}
+            className="hidden lap:block"
+            priority
+          />
         </div>
       </div>
     </footer>

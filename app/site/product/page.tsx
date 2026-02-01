@@ -39,16 +39,16 @@ function HighlightBar({
     <div className="lap:pt-5 lap:pb-3 w-full bg-linear-to-r from-[#131524] to-[#16192b]">
       <div
         className={[
-          "max-w-7xl mx-auto px-2",
+          "max-w-7xl mx-auto px-6 lap:px-1",
           "py-9",
-          "grid gap-y-6 gap-x-9",
-          "grid-cols-2", // mobile/tablet
+          "grid gap-y-6 gap-x-6 lap:gap-x-9",
+          "grid-cols-2",
           colsLap === 3 ? "lap:grid-cols-3" : "lap:grid-cols-5",
         ].join(" ")}
       >
         {items.map((it, idx) => (
           <div key={idx} className="text-[#e6e6e6]">
-            <p className="font-avenir font-black text-[14px] lap:text-[16px] leading-snug">
+            <p className="font-avenir font-black text-[13px] lap:text-[16px] leading-snug">
               {it.head}
             </p>
             {it.sub ? (
@@ -71,18 +71,18 @@ function SplitHighlightBoxes({
   right: HighlightItem[];
 }) {
   return (
-    <div className="mt-8 lap:mb-30 w-full">
+    <div className="mt-5 lap:mb-30 w-full">
       <div className="grid gap-6 lap:grid-cols-2">
         {/* Left box */}
-        <div className="bg-linear-to-r from-[#0B0F1A] to-[#14192D] px-10 lap:px-16 py-16 min-h-44.5">
+        <div className="bg-linear-to-r from-[#0B0F1A] to-[#14192D] px-6 lap:px-16 py-10 min-h-30">
           <div className="text-right grid grid-cols-2 gap-x-6 gap-y-6">
             {left.map((it, idx) => (
               <div key={idx} className="text-[#e6e6e6]">
-                <p className="font-avenir font-black text-[11px] lap:text-[16px] leading-snug">
+                <p className="font-avenir font-black text-[13px] lap:text-[16px] leading-snug">
                   {it.head}
                 </p>
                 {it.sub ? (
-                  <p className="mt-1 font-avenir font-regular text-[11px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
+                  <p className="mt-1 font-avenir font-regular text-[14px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
                     {it.sub}
                   </p>
                 ) : null}
@@ -92,15 +92,15 @@ function SplitHighlightBoxes({
         </div>
 
         {/* Right box */}
-        <div className="bg-linear-to-r from-[#14192D] to-[#0B0F1A] px-10 lap:px-16 py-16 min-h-44.5">
+        <div className="bg-linear-to-r from-[#14192D] to-[#0B0F1A] px-5 lap:px-16 py-10 min-h-30">
           <div className="text-left grid grid-cols-2 gap-x-6 gap-y-6">
             {right.map((it, idx) => (
               <div key={idx} className="text-[#e6e6e6]">
-                <p className="font-avenir font-black text-[11px] lap:text-[16px] leading-snug">
+                <p className="font-avenir font-black text-[13px] lap:text-[16px] leading-snug">
                   {it.head}
                 </p>
                 {it.sub ? (
-                  <p className="mt-1 font-avenir font-regular text-[11px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
+                  <p className="mt-1 font-avenir font-regular text-[14px] lap:text-[16px] text-[#e6e6e6] leading-relaxed">
                     {it.sub}
                   </p>
                 ) : null}
@@ -149,7 +149,7 @@ function OverlapProductRow({
       </div>
 
       {/* CONTENT (tetap center) */}
-      <div className="max-w-6xl mx-auto px-6 py-16 lap:py-20 relative">
+      <div className="max-w-6xl mx-auto px-6 py-12 lap:py-20 relative">
         <div className="flex flex-col gap-10 lap:flex-row lap:items-start">
           {/* MOBILE IMAGE */}
           <div className="group relative w-full lap:hidden">
@@ -270,28 +270,30 @@ export default function ProductPage() {
           </div>
 
           {/* RIGHT SIDE (CARD + DESC) */}
-          <div className="mt-8 lap:mt-10 lap:pt-6.75">
+          <div className="-mt-30 lap:mt-10 lap:pt-6.75">
             {/* Bikin wrapper lebih lebar biar DESC bisa lebih lebar dari card */}
             <div className="relative lap:ml-auto lap:w-225 overflow-visible">
               {/* CARD (lebih sempit + overlap ke kiri) */}
               <div
                 className="
                     relative z-10
-                    w-50 lap:w-100
+                    w-40 lap:w-100
                     bg-[#3F3F3F] text-[#f5f5f5]
                     lap:px-14 lap:pt-26 lap:pb-19
-                    px-10 pt-10 pb-15
-                    rounded-tr-[110px] rounded-bl-[110px]
+                    px-8 pt-8 pb-8
+                    rounded-tr-[70px] rounded-bl-[70px]
                     rounded-tl-none rounded-br-none
-                    lap:ml-120
+                    lap:rounded-tr-[110px] lap:rounded-bl-[110px]
+                    lap:rounded-tl-none lap:rounded-br-none
+                    ml-2 lap:ml-120
                     shadow-[0_30px_90px_rgba(0,0,0,0.18)]
                 "
               >
-                <h1 className="mt-5 lap:mt-8 font-avenir font-black text-[44px] lap:text-[75px] leading-none">
+                <h1 className="mt-5 lap:mt-8 font-avenir font-black text-[30px] lap:text-[75px] leading-none">
                   HYRA
                 </h1>
 
-                <p className="mt-6 font-avenir font-black text-[16px] lap:text-[32px] leading-snug">
+                <p className="mt-5 font-avenir font-black text-[14px] lap:text-[32px] leading-snug">
                   Acrylic Roof
                   <br />
                   Waterproofing
@@ -382,7 +384,7 @@ export default function ProductPage() {
         </div>
 
         {/* CONTENT CENTER */}
-        <div className="max-w-6xl mx-auto px-6 py-16 lap:py-16 relative">
+        <div className="max-w-6xl mx-auto px-6 py-10 lap:py-16 relative">
           <div className="grid gap-10 lap:grid-cols-[610px_1fr] lap:items-center">
             {/* TEXT */}
             <div className="text-right justify-self-end lap:pt-10">
@@ -393,7 +395,7 @@ export default function ProductPage() {
                 Epoxy Pool &<br />
                 Wet Area Waterproofing
               </p>
-              <p className="mt-6 font-avenir font-medium text-[11px] lap:text-[16px] text-[#131524] leading-relaxed max-w-112.5 ml-auto">
+              <p className="mt-6 font-avenir font-medium text-[14px] lap:text-[16px] text-[#131524] leading-relaxed max-w-112.5 ml-auto">
                 Waterproofing berbahan dasar epoxy untuk area kolam, GWT, IPAL,
                 planter box, dan roof garden. Memiliki daya rekat tinggi,
                 permukaan tanpa pori, dan kekerasan maksimal, sehingga tahan
@@ -418,7 +420,7 @@ export default function ProductPage() {
             <div className="hidden lap:block" />
           </div>
 
-          <div className="pt-12 lap:-ml-22">
+          <div className="pt-10 lap:-ml-22">
             <SectionTitle>highlight product</SectionTitle>
           </div>
         </div>
@@ -437,7 +439,7 @@ export default function ProductPage() {
 
       {/* ===== HYSEAL + HYCEM ===== */}
       <section className="w-full">
-        <div className="mt-18 max-w-7xl mx-auto px-6 py-5 lap:py-5">
+        <div className="mt-5 lap:mt-18 max-w-7xl mx-auto px-6 py-5 lap:py-5">
           {/* DESKTOP / LAP */}
           <div className="hidden lap:grid grid-cols-[170px_1fr_1fr_170px] gap-x-5 gap-y-10 items-center overflow-visible">
             {/* LEFT TEXT: HYSEAL */}
@@ -555,7 +557,7 @@ export default function ProductPage() {
           </div>
 
           {/* centered highlight title */}
-          <div className="pt-16">
+          <div className="pt-10">
             <SectionTitle align="center">highlight product</SectionTitle>
           </div>
         </div>

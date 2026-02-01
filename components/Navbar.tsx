@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-50 flex justify-center pt-6"
+      className="fixed top-0 left-0 w-full z-50 flex justify-center pt-3 lap:pt-6"
       style={{ pointerEvents: "none" }}
     >
       <div
@@ -42,8 +42,9 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Nuve Pluvia"
-              width={90}
-              height={90}
+              width={70}
+              height={70}
+              className="lap:w-22.5 lap:h-22.5"
               priority
             />
           </Link>

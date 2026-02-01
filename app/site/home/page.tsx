@@ -83,7 +83,7 @@ export default function Home() {
                   Hero Product
                 </p>
 
-                <p className="mt-4 text-[14px] lap:text-[16px] font-avenir font-normal text-white/80 leading-relaxed max-w-107.5">
+                <p className="mt-4 text-[15px] lap:text-[16px] font-avenir font-normal text-white/80 leading-relaxed max-w-107.5">
                   Waterproofing dengan system coating membrane memadukan antara
                   keunggulan terbaik membrane dan coating di saat bersamaan
                   meciptakan lapisan flexible (elastis) namun tetap kuat
